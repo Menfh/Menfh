@@ -4,11 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#090608">
+
 <title>Menfh | Redes</title>
 
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 :root{
   --red:#ff234b;
@@ -17,21 +24,41 @@ html{scroll-behavior:smooth}
   --muted:#aaa0a2;
 }
 
+/* =========================
+   FONDO
+========================= */
+
 body{
   margin:0;
   min-height:100vh;
+
   color:var(--cream);
-  font-family:Inter,Segoe UI,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 50% -10%,rgba(151,17,42,.32),transparent 38%),
-    radial-gradient(circle at 10% 60%,rgba(255,35,75,.06),transparent 28%),
-    linear-gradient(180deg,#090608,#0b0709 50%,#050405);
+
+  font-family:
+    Inter,
+    Segoe UI,
+    Arial,
+    sans-serif;
+
+  background-color:#070405;
+
+  background-image:
+    linear-gradient(
+      rgba(5,2,3,.08),
+      rgba(5,2,3,.15)
+    ),
+    url("fondo-menfh.png");
+
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+
   overflow-x:hidden;
 }
 
-/* =========================
-   FONDO ANIMADO
-========================= */
+
+/* Capa de partículas */
 
 .bg{
   position:fixed;
@@ -41,129 +68,6 @@ body{
   z-index:0;
 }
 
-/* Resplandor rojo superior */
-.bg::before{
-  content:"";
-  position:absolute;
-  width:900px;
-  height:500px;
-  left:50%;
-  top:-300px;
-  transform:translateX(-50%);
-  background:radial-gradient(
-    ellipse,
-    rgba(255,20,55,.18),
-    rgba(150,0,25,.08) 40%,
-    transparent 70%
-  );
-  filter:blur(25px);
-}
-
-/* =========================
-   LLAMAS / ENERGÍA
-========================= */
-
-.fire{
-  position:absolute;
-  width:850px;
-  height:160px;
-  border-radius:50%;
-  mix-blend-mode:screen;
-  filter:blur(24px);
-  opacity:.35;
-}
-
-.fire-red{
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(255,25,55,.75) 0%,
-      rgba(255,20,40,.45) 22%,
-      rgba(150,0,20,.18) 48%,
-      transparent 72%
-    );
-}
-
-.fire-gold{
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(255,205,90,.55) 0%,
-      rgba(255,100,25,.32) 25%,
-      rgba(180,25,0,.14) 50%,
-      transparent 72%
-    );
-}
-
-.fire1{
-  top:8%;
-  left:-30%;
-  transform:rotate(-18deg);
-  animation:fireLeft 12s ease-in-out infinite alternate;
-}
-
-.fire2{
-  top:31%;
-  right:-34%;
-  transform:rotate(16deg);
-  animation:fireRight 15s ease-in-out infinite alternate;
-}
-
-.fire3{
-  top:62%;
-  left:-35%;
-  transform:rotate(13deg);
-  animation:fireLeft 17s ease-in-out infinite alternate-reverse;
-}
-
-.fire4{
-  top:82%;
-  right:-35%;
-  transform:rotate(-14deg);
-  animation:fireRight 14s ease-in-out infinite alternate-reverse;
-}
-
-/* Trazos más suaves que las líneas anteriores */
-.streak{
-  position:absolute;
-  width:700px;
-  height:2px;
-  opacity:.35;
-  border-radius:100%;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,35,75,.4),
-    #ff3555,
-    #ff8a35,
-    rgba(231,182,87,.75),
-    transparent
-  );
-  box-shadow:
-    0 0 8px rgba(255,35,75,.55),
-    0 0 18px rgba(255,70,30,.25);
-}
-
-.streak1{
-  top:19%;
-  left:-35%;
-  transform:rotate(-15deg);
-  animation:streakLeft 14s ease-in-out infinite alternate;
-}
-
-.streak2{
-  top:47%;
-  right:-38%;
-  transform:rotate(13deg);
-  animation:streakRight 17s ease-in-out infinite alternate;
-}
-
-.streak3{
-  top:77%;
-  left:-38%;
-  transform:rotate(-10deg);
-  animation:streakLeft 19s ease-in-out infinite alternate-reverse;
-}
 
 /* =========================
    PARTÍCULAS
@@ -171,125 +75,93 @@ body{
 
 .spark{
   position:absolute;
-  width:6px;
-  height:6px;
+
+  width:5px;
+  height:5px;
+
   transform:rotate(45deg);
-  animation:sparkFloat 7s ease-in-out infinite;
+
+  animation:
+    sparkFloat 7s
+    ease-in-out
+    infinite;
 }
+
 
 .s1{
   left:7%;
   top:18%;
+
   background:#ff294f;
-  box-shadow:0 0 12px #ff294f;
+
+  box-shadow:
+    0 0 8px #ff294f,
+    0 0 16px rgba(255,41,79,.7);
 }
+
 
 .s2{
   right:8%;
-  top:35%;
+  top:34%;
+
   background:#e7b657;
-  box-shadow:0 0 12px #e7b657;
+
+  box-shadow:
+    0 0 8px #e7b657,
+    0 0 16px rgba(231,182,87,.7);
+
   animation-delay:-2s;
 }
 
+
 .s3{
-  left:14%;
-  top:73%;
+  left:13%;
+  top:72%;
+
   background:#ff294f;
-  box-shadow:0 0 12px #ff294f;
+
+  box-shadow:
+    0 0 8px #ff294f,
+    0 0 16px rgba(255,41,79,.7);
+
   animation-delay:-4s;
 }
 
+
 .s4{
-  right:11%;
+  right:10%;
   top:82%;
+
   background:#e7b657;
-  box-shadow:0 0 12px #e7b657;
+
+  box-shadow:
+    0 0 8px #e7b657,
+    0 0 16px rgba(231,182,87,.7);
+
   animation-delay:-1s;
 }
 
-/* Brasas que suben */
-.ember{
-  position:absolute;
-  bottom:-20px;
-  width:5px;
-  height:5px;
-  transform:rotate(45deg);
-  animation:emberRise linear infinite;
-  opacity:0;
-}
-
-.em1{left:5%;background:#ff294f;box-shadow:0 0 10px #ff294f;animation-duration:11s}
-.em2{left:18%;background:#e7b657;box-shadow:0 0 10px #e7b657;animation-duration:14s;animation-delay:-5s}
-.em3{left:31%;background:#ff294f;box-shadow:0 0 10px #ff294f;animation-duration:13s;animation-delay:-8s}
-.em4{left:47%;background:#e7b657;box-shadow:0 0 10px #e7b657;animation-duration:16s;animation-delay:-3s}
-.em5{left:63%;background:#ff294f;box-shadow:0 0 10px #ff294f;animation-duration:12s;animation-delay:-7s}
-.em6{left:76%;background:#e7b657;box-shadow:0 0 10px #e7b657;animation-duration:15s;animation-delay:-10s}
-.em7{left:88%;background:#ff294f;box-shadow:0 0 10px #ff294f;animation-duration:13s;animation-delay:-2s}
-.em8{left:96%;background:#e7b657;box-shadow:0 0 10px #e7b657;animation-duration:17s;animation-delay:-9s}
-
-/* =========================
-   ANIMACIONES FONDO
-========================= */
-
-@keyframes fireLeft{
-  from{
-    transform:translateX(-100px) rotate(-18deg) scale(.9);
-    opacity:.20;
-  }
-  to{
-    transform:translateX(260px) rotate(-12deg) scale(1.15);
-    opacity:.42;
-  }
-}
-
-@keyframes fireRight{
-  from{
-    transform:translateX(100px) rotate(16deg) scale(.9);
-    opacity:.18;
-  }
-  to{
-    transform:translateX(-260px) rotate(10deg) scale(1.15);
-    opacity:.38;
-  }
-}
-
-@keyframes streakLeft{
-  from{translate:-150px 0;opacity:.15}
-  to{translate:280px 0;opacity:.48}
-}
-
-@keyframes streakRight{
-  from{translate:150px 0;opacity:.15}
-  to{translate:-280px 0;opacity:.45}
-}
 
 @keyframes sparkFloat{
+
   0%,100%{
-    transform:translateY(0) rotate(45deg);
-    opacity:.9;
+    transform:
+      translateY(0)
+      rotate(45deg);
+
+    opacity:.85;
   }
+
   50%{
-    transform:translateY(-25px) rotate(135deg);
+    transform:
+      translateY(-22px)
+      rotate(135deg);
+
     opacity:.35;
   }
+
 }
 
-@keyframes emberRise{
-  0%{
-    transform:translate(0,0) rotate(45deg) scale(.4);
-    opacity:0;
-  }
-  12%{opacity:.8}
-  55%{
-    transform:translate(25px,-55vh) rotate(180deg) scale(1);
-    opacity:.65;
-  }
-  100%{
-    transform:translate(-15px,-110vh) rotate(360deg) scale(.3);
-    opacity:0;
-  }
-}
 
 /* =========================
    CONTENIDO
@@ -297,220 +169,382 @@ body{
 
 main{
   width:min(620px,92vw);
+
   margin:auto;
-  padding:48px 0 72px;
+
+  padding:
+    48px 0
+    72px;
+
   position:relative;
+
   z-index:2;
 }
 
+
+/* =========================
+   CABECERA
+========================= */
+
 .hero{
   text-align:center;
-  animation:enter .7s ease both;
+
+  animation:
+    enter .7s
+    ease both;
 }
+
+
+/* =========================
+   AVATAR
+========================= */
 
 .avatar{
   width:180px;
   height:180px;
+
   border-radius:50%;
+
   object-fit:cover;
-  border:2px solid var(--gold);
+
+  border:
+    2px solid
+    var(--gold);
+
   box-shadow:
-    0 0 0 5px rgba(255,35,75,.08),
-    0 0 42px rgba(255,35,75,.24);
-  animation:dragonFloat 4.8s ease-in-out infinite;
+    0 0 0 5px
+    rgba(255,35,75,.08),
+
+    0 0 42px
+    rgba(255,35,75,.24);
+
+  animation:
+    dragonFloat
+    4.8s
+    ease-in-out
+    infinite;
+
   transition:.25s;
 }
 
+
 .avatar:hover{
+
   animation-play-state:paused;
-  transform:scale(1.035) rotate(-1deg);
+
+  transform:
+    scale(1.035)
+    rotate(-1deg);
+
   box-shadow:
-    0 0 0 5px rgba(231,182,87,.10),
-    0 0 48px rgba(255,35,75,.34);
+    0 0 0 5px
+    rgba(231,182,87,.10),
+
+    0 0 48px
+    rgba(255,35,75,.34);
 }
 
-h1{
-  font-family:Georgia,serif;
-  font-size:42px;
-  letter-spacing:6px;
-  margin:17px 0 5px;
+
+@keyframes dragonFloat{
+
+  0%,100%{
+    transform:
+      translateY(0)
+      rotate(0deg);
+  }
+
+  50%{
+    transform:
+      translateY(-7px)
+      rotate(.4deg);
+  }
+
 }
 
-h1 span{color:var(--red)}
-
-.tag{
-  margin:0;
-  color:var(--muted);
-  font-size:13px;
-  letter-spacing:2.1px;
-}
-
-.rule{
-  height:1px;
-  margin:28px auto 30px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    var(--gold),
-    var(--red),
-    var(--gold),
-    transparent
-  );
-}
 
 /* =========================
-   REDES
+   MENFH
+========================= */
+
+h1{
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size:42px;
+
+  letter-spacing:6px;
+
+  margin:
+    17px 0
+    5px;
+
+  text-shadow:
+    0 3px 15px
+    rgba(0,0,0,.75);
+}
+
+
+h1 span{
+  color:var(--red);
+}
+
+
+.tag{
+
+  margin:0;
+
+  color:#c0b5b7;
+
+  font-size:13px;
+
+  letter-spacing:2.1px;
+
+  text-shadow:
+    0 2px 10px
+    #000;
+}
+
+
+/* Línea dorada */
+
+.rule{
+
+  height:1px;
+
+  margin:
+    28px auto
+    30px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      var(--red),
+      var(--gold),
+      transparent
+    );
+
+  box-shadow:
+    0 0 8px
+    rgba(255,35,75,.25);
+}
+
+
+/* =========================
+   BOTONES
 ========================= */
 
 .links{
+
   display:grid;
+
   gap:16px;
 }
 
+
 .social{
+
   display:block;
+
   position:relative;
+
   border-radius:19px;
+
   overflow:hidden;
-  border:1px solid rgba(231,182,87,.7);
-  box-shadow:0 12px 30px rgba(0,0,0,.32);
+
+  border:
+    1px solid
+    rgba(231,182,87,.7);
+
+  box-shadow:
+    0 12px 30px
+    rgba(0,0,0,.55);
+
   transition:.25s;
-  animation:enter .65s ease both;
+
+  animation:
+    enter .65s
+    ease both;
 }
 
-.social:nth-child(2){animation-delay:.08s}
-.social:nth-child(3){animation-delay:.16s}
+
+.social:nth-child(2){
+  animation-delay:.08s;
+}
+
+
+.social:nth-child(3){
+  animation-delay:.16s;
+}
+
 
 .social img{
+
   display:block;
+
   width:100%;
+
   height:auto;
+
   transition:.35s;
 }
 
+
+/* Brillo al pasar mouse */
+
 .social::after{
+
   content:"";
+
   position:absolute;
+
   inset:0;
-  background:linear-gradient(
-    105deg,
-    transparent 45%,
-    rgba(255,255,255,.10) 52%,
-    transparent 59%
-  );
-  transform:translateX(-120%);
+
+  background:
+    linear-gradient(
+      105deg,
+      transparent 45%,
+      rgba(255,255,255,.12) 52%,
+      transparent 59%
+    );
+
+  transform:
+    translateX(-120%);
+
   transition:.55s;
 }
 
+
 .social:hover{
-  transform:translateY(-4px) scale(1.008);
+
+  transform:
+    translateY(-4px)
+    scale(1.008);
+
   border-color:#ffd982;
+
   box-shadow:
-    0 16px 38px rgba(0,0,0,.42),
-    0 0 20px rgba(255,35,75,.12);
+    0 16px 38px
+    rgba(0,0,0,.55),
+
+    0 0 22px
+    rgba(255,35,75,.16);
 }
 
-.social:hover img{transform:scale(1.012)}
-.social:hover::after{transform:translateX(120%)}
+
+.social:hover img{
+  transform:scale(1.012);
+}
+
+
+.social:hover::after{
+  transform:translateX(120%);
+}
+
 
 /* =========================
-   ANIMACIONES CONTENIDO
+   ENTRADA
 ========================= */
 
-@keyframes dragonFloat{
-  0%,100%{transform:translateY(0) rotate(0deg)}
-  50%{transform:translateY(-7px) rotate(.4deg)}
-}
-
 @keyframes enter{
+
   from{
     opacity:0;
-    transform:translateY(14px);
+
+    transform:
+      translateY(14px);
   }
+
   to{
     opacity:1;
+
     transform:none;
   }
+
 }
+
 
 /* =========================
    MOBILE
 ========================= */
 
 @media(max-width:560px){
-  main{padding-top:32px}
+
+  body{
+    background-attachment:scroll;
+    background-position:center top;
+  }
+
+  main{
+    padding-top:32px;
+  }
 
   .avatar{
     width:150px;
     height:150px;
   }
 
-  h1{font-size:34px}
-  .tag{font-size:11px}
-  .links{gap:12px}
-  .social{border-radius:14px}
-
-  .fire{
-    width:600px;
-    opacity:.25;
+  h1{
+    font-size:34px;
   }
 
-  .streak{
-    width:500px;
+  .tag{
+    font-size:11px;
   }
+
+  .links{
+    gap:12px;
+  }
+
+  .social{
+    border-radius:14px;
+  }
+
 }
 
+
+/* Accesibilidad */
+
 @media(prefers-reduced-motion:reduce){
+
   .avatar,
-  .fire,
-  .streak,
   .spark,
-  .ember,
   .social,
   .hero{
     animation:none !important;
   }
+
 }
 
 </style>
 </head>
 
+
 <body>
+
+
+<!-- PARTÍCULAS -->
 
 <div class="bg">
 
-  <!-- Resplandores tipo fuego -->
-  <div class="fire fire-red fire1"></div>
-  <div class="fire fire-gold fire2"></div>
-  <div class="fire fire-red fire3"></div>
-  <div class="fire fire-gold fire4"></div>
-
-  <!-- Corrientes de energía -->
-  <div class="streak streak1"></div>
-  <div class="streak streak2"></div>
-  <div class="streak streak3"></div>
-
-  <!-- Destellos -->
   <i class="spark s1"></i>
   <i class="spark s2"></i>
   <i class="spark s3"></i>
   <i class="spark s4"></i>
 
-  <!-- Brasas -->
-  <i class="ember em1"></i>
-  <i class="ember em2"></i>
-  <i class="ember em3"></i>
-  <i class="ember em4"></i>
-  <i class="ember em5"></i>
-  <i class="ember em6"></i>
-  <i class="ember em7"></i>
-  <i class="ember em8"></i>
-
 </div>
+
+
+<!-- CONTENIDO -->
 
 <main>
 
+
 <header class="hero">
+
 
 <img
   class="avatar"
@@ -518,17 +552,25 @@ h1 span{color:var(--red)}
   alt="Avatar Menfh"
 >
 
-<h1>MEN<span>FH</span></h1>
+
+<h1>
+  MEN<span>FH</span>
+</h1>
+
 
 <p class="tag">
-STREAMS · GAMING · COMUNIDAD
+  STREAMS · GAMING · COMUNIDAD
 </p>
+
 
 </header>
 
+
 <div class="rule"></div>
 
+
 <section class="links">
+
 
 <a
   class="social"
@@ -536,8 +578,14 @@ STREAMS · GAMING · COMUNIDAD
   target="_blank"
   rel="noopener noreferrer"
 >
-  <img src="twitch.jpg" alt="Twitch de Menfh">
+
+  <img
+    src="twitch.jpg"
+    alt="Twitch de Menfh"
+  >
+
 </a>
+
 
 <a
   class="social"
@@ -545,8 +593,14 @@ STREAMS · GAMING · COMUNIDAD
   target="_blank"
   rel="noopener noreferrer"
 >
-  <img src="tiktok.jpg" alt="TikTok de Menfh">
+
+  <img
+    src="tiktok.jpg"
+    alt="TikTok de Menfh"
+  >
+
 </a>
+
 
 <a
   class="social"
@@ -554,12 +608,20 @@ STREAMS · GAMING · COMUNIDAD
   target="_blank"
   rel="noopener noreferrer"
 >
-  <img src="instagram.jpg" alt="Instagram de Menfh">
+
+  <img
+    src="instagram.jpg"
+    alt="Instagram de Menfh"
+  >
+
 </a>
+
 
 </section>
 
+
 </main>
+
 
 </body>
 </html>
